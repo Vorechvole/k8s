@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ include "jenkins-app.fullname" . }}
   labels:
-    {{- include "jenkins-app.labels" . | nindent 4 }}
+    app: jenkins-server
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "jenkins-app.selectorLabels" . | nindent 4 }}
+    app: jenkins-server

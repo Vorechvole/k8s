@@ -2,9 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jenkins
-  namespace: jenkins
-  labels:
-    {{- include "jenkins-app.labels" . | nindent 4 }}
+  namespace: devops-tools
 spec:
   replicas: 1
   selector:
@@ -13,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        {{- include "jenkins-app.selectorLabels" . | nindent 8 }}
+        app: jenkins-server
     spec:
       securityContext:
         fsGroup: 1000
