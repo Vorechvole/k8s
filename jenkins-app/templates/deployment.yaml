@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: jenkins
   namespace: jenkins
+  labels:
+    {{ - include "jenkins-app.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
@@ -11,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        app: jenkins-server
+        {{- include "jenkins-app.selectorLabels" . | nindent 8 }}
     spec:
       securityContext:
         fsGroup: 1000
