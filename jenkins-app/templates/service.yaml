@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: jenkins-server
+    {{- include "jenkins-app.labels" . | nindent 4 }}
