@@ -7,7 +7,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "jenkins-app.labels" . | nindent 6 }}
+      helm.sh/chart: {{ include "jenkins-app.chart" . }}
   template:
     metadata:
       labels:
