@@ -4,7 +4,7 @@ metadata:
   name: jenkins
   namespace: jenkins
   labels:
-    {{ - include "jenkins-app.labels" . | nindent 4 }}
+    {{- include "jenkins-app.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
