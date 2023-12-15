@@ -7,7 +7,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      helm.sh/chart: {{ include "jenkins-app.chart" . }}
+      app.kubernetes.io/name: jenkins-app
   template:
     metadata:
       labels:
